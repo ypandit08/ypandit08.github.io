@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en">
+{% include head.html %}
+<body>
+  {% include sidebar.html %}
+  {% include topnav.html %}
+  <main class="container">
+    {{ content }}
+  </main>
+  {% include footer.html %}
+  <script src="{{ '/assets/js/publications.js' | relative_url }}"></script>
+</body>
+</html>
