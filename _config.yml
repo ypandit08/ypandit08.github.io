@@ -1,14 +1,5 @@
-title: Your Name
-email: your.email@domain.com
-description: Academic website generated with Jekyll + jekyll-scholar
-baseurl: "" # change if deploying to a subpath
-url: "" # your site URL, e.g. https://username.github.io
+title: ""
+theme: minima
 plugins:
-  - jekyll-scholar
-scholar:
-  style: apa
-  source: publications/bibliography.bib
-collections:
-  activities:
-    output: true
-    permalink: /activities/:path/
+  - jekyll-feed
+repository: "ypandit08/ypandit08.github.io"

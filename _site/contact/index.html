@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contact</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Manrope:wght@400;600;700&family=Roboto+Flex:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+  <div class="site">
+    <header class="nav">
+  <div class="nav-inner">
+    <div class="brand"> <!-- no name shown as requested --> </div>
+    <nav class="topnav">
+      <a href="/">About me</a>
+      <a href="/publications/">Publications</a>
+      <a href="/academic-activities/">Academic Activities</a>
+      <!--<a href="/cv/">CV</a>-->
+      <a href="/contact/">Contact</a>
+    </nav>
+</header>
+    <main class="main">
+      <section class="content-card fade-in">
+
+<div class="contact-item" style="display:flex; align-items:center; justify-content:left; gap:0.75rem;">
+  <span class="contact-icon" style="display:flex; align-items:center; justify-content:center;">📧</span>
+  <span class="contact-text">yeshwant [dot] pandit [at] tifr [dot] res [dot] in</span>
+</div>
+
+<div class="contact-item" style="display:flex; align-items:top; justify-content:left; gap:0.75rem;">
+  <span class="contact-icon" style="display:flex; align-items:center; justify-content:center;">📍</span>
+  <span class="contact-text">
+    Tata Institute of Fundamental Research<br />
+    Homi Bhabha Road, Navy Nagar<br />
+    Colaba, Mumbai 400005<br />
+    India
+  </span>
+</div>
+
+</section>
+
+    </main>
+  <script>
+    // Simple fade-in for content sections
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.fade-in').forEach(function(el, i){
+        el.style.animationDelay = (i * 120) + 'ms';
+        el.classList.add('appear');
+      });
+    });
+  </script>
+</body>
+</html>

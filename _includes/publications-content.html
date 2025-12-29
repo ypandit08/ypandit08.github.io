@@ -1,0 +1,68 @@
+<div class="publications-module">
+<div class="content-card publications-card">
+{%- comment -%}
+Updated publications include:
+- Assumes data is in _data/publications.yml (site.data.publications)
+- Authors are arrays in the YAML; we join them and use markdownify so <strong> tags render.
+- Adds buttons: PDF (blue), arXiv (red), To-Appear (grey).
+- Avoids use of unsupported Liquid operators like `is array`.
+{%- endcomment -%}
+
+
+
+{%- assign pubs = site.data.publications -%}
+{%- if pubs == nil -%}
+  <!-- No publications found in _data/publications.yml -->
+{%- else -%}
+  {%- for pub in pubs -%}
+    <div class="pub-item">
+      {%- if pub.title -%}
+        <div class="pub-title">{{ pub.title }}</div>
+      {%- endif -%}
+
+      <div class="pub-meta">
+        {%- if pub.authors -%}
+          {%- comment -%}
+            pub.authors should be an array (YAML list). We join and markdownify so any <strong> HTML in the YAML renders.
+          {%- endcomment -%}
+          <div class="pub-authors">
+  with
+  {% assign last_index = pub.authors.size | minus: 1 %}
+  {% if pub.authors.size > 1 %}
+    {{ pub.authors | slice: 0, last_index | join: ', ' }}
+    and {{ pub.authors | last }}
+  {% else %}
+    {{ pub.authors | first }}
+  {% endif %}
+</div>
+
+
+        {%- endif -%}
+
+        <div>
+          {%- if pub.venue -%}
+            <span class="pub-venue">{{ pub.venue }}</span>
+          {%- endif -%}
+          {%- if pub.journal -%}
+            <span class="pub-journal">{{ pub.journal }}</span>
+          {%- endif -%}
+          {%- if pub.year -%}
+            <span class="pub-year">({{ pub.year }})</span>
+          {%- endif -%}
+      <div class="pub-buttons">
+        {%- comment -%} PDF button (only if a non-empty link is provided and not a placeholder) {%- endcomment -%}
+        {%- if pub.pdf and pub.pdf != "" and pub.pdf != "#" -%}
+          <a class="btn btn-pdf btn-inline" href="{{ pub.pdf }}" target="_blank" rel="noopener noreferrer">PDF</a>
+        {%- endif -%}
+
+        {%- comment -%} arXiv button (if arxiv key exists). Use red color. {%- endcomment -%}
+        {%- if pub.arxiv and pub.arxiv != "" -%}
+          <a class="btn btn-arxiv btn-inline" href="{{ pub.arxiv }}" target="_blank" rel="noopener noreferrer">arXiv</a>
+        {%- endif -%}
+
+        {%- comment -%} To-Appear button using only the 'to-appear' key {%- endcomment -%}
+        {%- if pub["to-appear"] -%}
+          <button class="btn btn-future" aria-disabled="true">{{ pub["to-appear"] }}</button>
+        {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}

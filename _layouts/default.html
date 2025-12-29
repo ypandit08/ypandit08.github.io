@@ -1,13 +1,28 @@
 <!doctype html>
 <html lang="en">
-{% include head.html %}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{ page.title }}</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Manrope:wght@400;600;700&family=Roboto+Flex:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
 <body>
-  {% include sidebar.html %}
-  {% include topnav.html %}
-  <main class="container">
-    {{ content }}
-  </main>
-  {% include footer.html %}
-  <script src="{{ '/assets/js/publications.js' | relative_url }}"></script>
+  <div class="site">
+    {% include nav.html %}
+    <main class="main">
+      {{ content }}
+    </main>
+  <script>
+    // Simple fade-in for content sections
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.fade-in').forEach(function(el, i){
+        el.style.animationDelay = (i * 120) + 'ms';
+        el.classList.add('appear');
+      });
+    });
+  </script>
 </body>
 </html>

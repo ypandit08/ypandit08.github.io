@@ -1,0 +1,718 @@
+
+/* Modern upgraded theme with Google Fonts, animations, profile hero, pub cards, custom palette, and responsive CV */
+
+:root{
+  --bg: #f5f7fb;
+  --card:#ffffff;
+  --muted:#6b7280;
+  --accent:#2563eb; /* blue */
+  --accent-2:#7c3aed; /* violet */
+  --glass: rgba(255,255,255,0.6);
+  --radius:14px;
+}
+
+/* Base */
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter, "Manrope", "Roboto Flex", system-ui, -apple-system; background:linear-gradient(180deg,#f8fafc 0%, #eef2ff 100%); color:#111;}
+a{color:var(--accent);text-decoration:none}
+.site{min-height:100vh}
+
+/* Top nav */
+.nav{background:transparent;position:static;padding:18px 0}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:flex-end;align-items:center;padding:0 18px}
+.topnav a{margin-left:18px;font-weight:600;color:#0f172a;opacity:0.95}
+.topnav a:hover{color:var(--accent-2);transform:translateY(-2px)}
+/* Hero */
+.hero{max-width:1100px;margin:28px auto;padding:36px 18px;display:flex;align-items:center;background:linear-gradient(135deg, rgba(255,255,255,0.6), rgba(255,255,255,0.5));border-radius:18px;backdrop-filter: blur(6px);box-shadow:0 12px 30px rgba(11,35,80,0.06)}
+.hero-inner{display:flex;gap:28px;align-items:center}
+/*.hero-avatar{width:160px;height:160px;border-radius:50%;object-fit:cover;border:6px solid rgba(255,255,255,0.9);box-shadow:0 10px 30px rgba(11,35,80,0.08)}*/
+.hero-avatar {
+  width: 160px;            /* or 180px depending on your layout */
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  filter: contrast(1.05) brightness(1.03);
+}
+.hero-text .hero-name{font-family:Manrope, Inter; font-size:22px !important;margin:0 0 6px}
+.hero-role{color:var(--muted);margin:0 0 10px}
+
+/* content cards */
+.content-card{max-width:1100px;margin:28px auto;padding:22px;border-radius:var(--radius);background:var(--card);box-shadow:0 10px 30px rgba(11,35,80,0.04);}
+
+/* Publication grid */
+.pub-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:12px}
+.pub-card{background:linear-gradient(180deg, rgba(255,255,255,0.92), rgba(250,250,255,0.92));padding:18px;border-radius:12px;border:1px solid rgba(12,20,40,0.03);box-shadow:0 6px 16px rgba(11,35,80,0.04);transition:transform .18s ease, box-shadow .18s ease}
+.pub-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(11,35,80,0.08)}
+.pub-top{display:flex;align-items:center;gap:12px}
+.pub-icon{font-size:24px;width:44px;height:44px;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:white;box-shadow:0 6px 20px rgba(12,20,40,0.08)}
+.pub-title{margin:0;font-size:18px}
+.meta{color:var(--muted);font-size:14px;margin-top:6px}
+.authors{color:#111;font-size:14px;margin-top:6px}
+.btn{display:inline-block;padding:8px 12px;border-radius:8px;background:var(--accent);color:white;font-weight:600;margin-top:10px;text-decoration:none}
+.btn.alt{background:#374151}
+.chip{display:inline-block;padding:6px 8px;border-radius:8px;border:1px solid rgba(12,20,30,0.06);margin-left:8px}
+
+/* CV two-column 
+.cv-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.cv-left, .cv-right{background:linear-gradient(180deg, rgba(250,250,255,0.9), rgba(255,255,255,0.95));padding:18px;border-radius:12px}
+.cv-left h3, .cv-right h3{margin-top:0}*/
+
+/* Responsive */
+@media (max-width:900px){
+  .pub-grid{grid-template-columns:1fr}
+  .hero-inner{flex-direction:column; text-align:center}
+  .hero-text{display:block}
+  /*.cv-grid{grid-template-columns:1fr}*/
+}
+
+/* Animated transitions - fade-in */
+.fade-in{opacity:0;transform:translateY(8px)}
+.fade-in.appear{animation:fadeUp .5s forwards cubic-bezier(.2,.9,.2,1)}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+
+/* Small touches */
+.content-card h1{margin-top:0}
+
+.logo-link img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  border-radius: 10px;
+  background: #ffffff;
+  padding: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: all .25s ease;
+}
+
+.logo-link img:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* publications module (namespaced) */
+.publications-module { --pub-accent: #0b6efd; --highlight-color: #0b6efd; }
+/* simple base styles for include content */
+.publications-module .pub-card{margin-bottom:16px;}
+
+/* activities module (namespaced) */
+.activities-module { --activities-accent: #7c5cff; }
+.activities-module .card{margin-bottom:12px;}
+
+/* Publications buttons (namespaced) */
+.publications-module .pub-links { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+
+.publications-module .btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:8px 12px;
+  border-radius:8px;
+  font-weight:600;
+  font-size:0.92rem;
+  text-decoration:none;
+  border:1px solid transparent;
+}
+
+.publications-module .btn-primary {
+  background: linear-gradient(180deg, #0b6efd, #075ad6);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(11,102,237,0.14);
+}
+
+.publications-module .btn-arxiv {
+  background: linear-gradient(180deg, #e34a4a, #c32b2b);
+  color: #fff;
+  border-color: rgba(255,255,255,0.06);
+  box-shadow: 0 6px 14px rgba(227,74,74,0.12);
+}
+
+.publications-module .btn-outline {
+  background: transparent;
+  color: var(--pub-accent, #0b6efd);
+  border:1px solid rgba(11,102,237,0.12);
+}
+
+/*.publications-module .btn-future {
+  background: linear-gradient(180deg, #f3f4f6, #eef2f6);
+  color: #5b616a;
+  border:1px solid rgba(13, 14, 18, 0.06);
+  cursor: default;
+  opacity:0.95;
+}*/
+
+.publications-module .btn-future[aria-disabled="true"] { pointer-events:none; opacity:0.9; }
+
+/* buttons baseline (if you have .btn already, adapt) */
+.btn {
+  display: inline-block;
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  line-height: 1;
+  margin-right: 0.5rem;
+  margin-bottom: 0.4rem;
+  border: 1px solid transparent;
+}
+
+/* existing primary (PDF) likely already exists */
+.btn-primary {
+  background-color: #2b6cb0;
+  color: #fff;
+}
+
+/* arXiv button: red (use brand-like red) */
+.btn-arxiv {
+  background-color: #e03b3b;
+  color: #fff;
+  border-color: rgba(0,0,0,0.05);
+}
+
+/* outline/code button */
+.btn-outline {
+  background: transparent;
+  border: 1px solid rgba(0,0,0,0.12);
+  color: inherit;
+}
+
+/* to-appear: grey, non-clickable badge look */
+.btn-future {
+  /*background-color: #e6e6e6;
+  color: #333;
+  border-color: transparent;
+  cursor: default;
+  pointer-events: none;
+  opacity: 1;
+  */
+  background-color: #f0f0f5 !important;    /* slightly grey like disabled-style buttons */
+  border: 1px solid #c8c8d0 !important;    /* same border thickness as PDF/arXiv */
+  color: #333 !important;                  /* darker text */
+  font-weight: 500 !important;             /* match appearance of other buttons */
+  padding: 6px 12px !important;            /* ensure consistent size */
+  border-radius: 6px !important;           /* same rounded shape */
+}
+
+
+.publications-module .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--btn-height);
+  padding: 0 var(--btn-padding-x);
+  border-radius: var(--btn-radius);
+  font-size: var(--btn-font-size);
+  font-weight: var(--btn-font-weight);
+  line-height: 1;
+  vertical-align: middle;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.publications-module .btn-future {
+  cursor: default;
+  pointer-events: none;
+}
+
+
+
+/* === Publications merged styles (auto-inserted) === */
+/* ----------------------------------------------------------------
+   Publications — merged CSS to replace inline styles and ensure
+   uniform button sizing/alignment while preserving original spacing
+   ---------------------------------------------------------------- */
+
+/* Publication item spacing (matches your inline rules) */
+.publications-module .pub-item {
+  /*margin-bottom: 1.4rem;          
+  padding-bottom: 0.8rem;         
+  border-bottom: 1px solid #eee;   */
+  margin-bottom: 3rem !important;   /* increase vertical spacing */
+  padding-bottom: 1.2rem !important;
+  /*border-bottom: 1px solid rgba(0,0,0,0.08) !important;*/
+  border-bottom: none;
+}
+
+.publications-module .pub-item:last-child {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  border-bottom: none !important;
+}
+
+
+/* Title / meta / authors styles (mirror inline) */
+.publications-module .pub-title {
+  font-size: 1.02rem;
+  margin: 0 0 0.25rem 0;
+  font-weight: 600;
+}
+
+.publications-module .pub-meta {
+  color: #444;
+  font-size: 0.95rem;
+  /*margin-bottom: 0.5rem;*/
+  margin-bottom: 0.8rem !important;
+}
+
+.publications-module .pub-authors {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: #111;
+  font-size: 0.95rem;
+}
+
+.publications-module .pub-venue {
+  font-style: italic;
+  margin-right: 0.5rem;
+}
+
+.publications-module .pub-year {
+  color: #666;
+}
+
+/* Keep the same visual spacing as your inline .pub-buttons */
+.publications-module .pub-buttons,
+.publications-module .pub-links {
+  /*margin-top: 0.4rem;     same as inline .pub-buttons */
+  margin-top: 0.6rem !important;
+}
+
+/* ----------------------------------------------------------------
+   Button base + alignment (ensures <a>, <button> behave same)
+   ---------------------------------------------------------------- */
+
+/* Base button used for all publication buttons */
+.publications-module .btn {
+  display: inline-flex;            /* use inline-flex for perfect centering */
+  align-items: center;
+  justify-content: center;
+  height: 36px;                    /* choose a compact height similar to inline padding */
+  padding: 0 10px;                 /* horizontal padding that matches inline feel */
+  border-radius: 6px;              /* same as inline */
+  font-size: 0.85rem;              /* same as inline */
+  line-height: 1;                  /* normalize text baseline */
+  vertical-align: middle;          /* normalize inline alignment */
+  text-decoration: none;
+  white-space: nowrap;
+  border: none;
+  box-sizing: border-box;
+  margin-right: 0.4rem;            /* keeps the inline spacing between buttons */
+  margin-bottom: 0.25rem;          /* small wrap spacing */
+  cursor: pointer;
+  margin-bottom: 2.5rem;
+}
+
+/* Keep legacy utility class names working if used anywhere */
+.publications-module .btn-pdf { /* legacy mapping to blue primary */
+  background: linear-gradient(180deg,#0b6efd,#075ad6);
+  color: #fff;
+}
+.publications-module .btn-arxiv { /* legacy mapping to red */
+  background: linear-gradient(180deg,#e34a4a,#c32b2b);
+  color: #fff;
+}
+.publications-module .btn-toappear { /* legacy mapping to grey */
+  background: #9e9e9e;
+  color: #fff;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* Preferred modern classes (recommended) */
+.publications-module .btn-primary {
+  background: linear-gradient(180deg,#0b6efd,#075ad6);
+  color: #fff;
+  border: 1px solid rgba(11,102,237,0.06);
+  box-shadow: 0 6px 18px rgba(11,102,237,0.08);
+}
+
+.publications-module .btn-arxiv {
+  background: linear-gradient(180deg,#e34a4a,#c32b2b);
+  color: #fff;
+  border: 1px solid rgba(0,0,0,0.04);
+  box-shadow: 0 6px 14px rgba(227,74,74,0.08);
+}
+
+.publications-module .btn-future {
+  background: linear-gradient(180deg,#f3f4f6,#eef2f6);
+  color: #4b5563;
+  border: 1px solid rgba(13,14,18,0.04);
+  cursor: default;
+  pointer-events: none;
+}
+
+/* Ensure all variants share identical box-model to avoid misalignment */
+.publications-module .btn,
+.publications-module .btn-primary,
+.publications-module .btn-arxiv,
+.publications-module .btn-future,
+.publications-module .btn-pdf,
+.publications-module .btn-toappear {
+  height: 36px;
+  padding: 0 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  line-height: 1;
+  vertical-align: middle;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive: allow wrapping without collapsing alignment */
+@media (max-width: 520px) {
+  .publications-module .btn { min-width: 110px; padding: 0 10px; }
+  .publications-module .btn-future { min-width: 140px; }
+}
+
+/* small accessibility focus style */
+.publications-module .btn:focus {
+  outline: 3px solid rgba(11,102,237,0.12);
+  outline-offset: 2px;
+}
+
+
+/* === Button alignment patch for publications-module === */
+/*.publications-module .btn,
+.publications-module a.btn,
+.publications-module button.btn {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 36px !important;
+  padding: 0 10px !important;
+  border-radius: 6px !important;
+  font-size: 0.85rem !important;
+  line-height: 1 !important;
+  vertical-align: middle !important;
+  box-sizing: border-box !important;
+  margin: 0 0.4rem 0.25rem 0 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  font-family: inherit !important;
+}
+*/
+
+/* Ensure anchors and buttons render same baseline & no extra top/bottom margins */
+/*.publications-module .btn,
+.publications-module .btn:before,
+.publications-module .btn:after {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}*/
+
+/* If any UA default line-height differs, force baseline anchoring */
+/*.publications-module .pub-links { align-items: center; }*/
+
+
+
+/* === Strong alignment enforcement for publication buttons === */
+/*.publications-module .pub-links { display:flex; align-items:center; gap:0.4rem; }*/
+
+/* Target direct children (anchors, buttons, spans) to unify metrics */
+/*.publications-module .pub-links > * {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 36px !important;
+  min-height: 36px !important;
+  padding: 0 10px !important;
+  border-radius: 6px !important;
+  font-size: 0.85rem !important;
+  line-height: 1 !important;
+  vertical-align: middle !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  margin-right: 0.4rem !important;
+  margin-bottom: 0.25rem !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  font-family: inherit !important;
+  align-self: center !important;
+  top: 0 !important;
+  position: relative !important;
+  transform: none !important;
+}
+*/
+
+/* Ensure clickable anchors don't have extra baseline offset from line-height */
+/*.publications-module .pub-links a.btn { line-height: 1 !important; text-decoration: none !important; }*/
+
+/* Remove any user-agent focus outline differences */
+/*.publications-module .pub-links button.btn { border: none !important; background-clip: padding-box; }*/
+
+/* If any previous rules used padding-top/bottom, neutralize them */
+
+/*.publications-module .pub-links > * {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+*/
+
+/* Extra: ensure icon and text inside are centered */
+
+/*.publications-module .pub-links > * svg,
+.publications-module .pub-links > * i {
+  vertical-align: middle !important;
+  display: inline-block !important;
+  margin-right: 8px !important;
+  line-height: 1 !important;
+}
+*/
+
+/* Accessibility: ensure focus outline still visible */
+/*.publications-module .pub-links > *:focus {
+  outline: 3px solid rgba(11,102,237,0.12) !important;
+  outline-offset: 2px !important;
+}*/
+
+
+
+/* === Final alignment fix for publication buttons === */
+
+/*.publications-module .btn,
+.publications-module a.btn,
+.publications-module button.btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  height: 34px !important;
+  line-height: 34px !important;
+  padding: 0 10px !important;
+
+  border: none !important;
+  border-radius: 6px !important;
+
+  font-size: 0.85rem !important;
+  font-family: inherit !important;
+
+  vertical-align: middle !important;
+
+  -webkit-appearance: none !important;
+  appearance: none !important;
+}
+*/
+
+
+/* === Content card styles for Publications & Academic Activities === */
+
+/*.content-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(250,250,255,0.96));
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(11,35,80,0.04);
+  margin: 20px 0;
+  border: 1px solid rgba(12,20,30,0.03);
+}
+.content-card .pub-title { margin-bottom: 6px; }
+.content-card .pub-links { margin-top: 10px; }
+.publications-card */ { /* minor specific tweaks */ }
+
+
+
+
+
+/* Academic Activities accordion/card styles */
+.academic-activities-list { display: grid; gap: 16px; margin-top: 12px; }
+.acad-card {
+  background: linear-gradient(180deg, #ffffff, #fbfbff);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(11,35,80,0.04);
+  border: 1px solid rgba(12,20,30,0.03);
+  overflow: hidden;
+}
+.acad-card > summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+.acad-card[open] > summary { /* when open keep same background */ }
+.acad-icon {
+  display: inline-flex;
+  width: 36px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: linear-gradient(180deg,#f3f4ff,#eef2ff);
+  box-shadow: 0 6px 14px rgba(11,35,80,0.04);
+  font-size: 18px;
+}
+.acad-body { padding: 12px 18px 18px 18px; color: #222; }
+.acad-body ul { margin: 0; padding-left: 1.1rem; }
+.acad-body li { margin: 8px 0; color: #333; }
+.acad-card summary::-webkit-details-marker { display:none; }
+
+/* small responsive tweak */
+@media (max-width:720px) {
+  .acad-card > summary { font-size: 1rem; }
+  .acad-icon { width: 32px; height: 32px; }
+}
+
+
+
+/* Centered content cards for hero and about sections */
+.centered-card {
+  max-width: 1100px;
+  margin: 36px auto; /* vertical spacing and centered horizontally */
+  padding: 22px;
+  box-sizing: border-box;
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,250,255,0.98));
+  border-radius: 12px;
+  border: 1px solid rgba(12,20,30,0.03);
+  box-shadow: 0 10px 30px rgba(11,35,80,0.03);
+}
+
+/* Ensure hero-inner and about content align within centered card */
+.centered-card .hero-inner { display:flex; gap:28px; align-items:center; }
+.centered-card .hero-avatar { flex: 0 0 auto; width:150px; height:150px; border-radius:50%; object-fit:cover; }
+.centered-card .hero-text { flex: 1 1 auto; }
+.centered-card .about { margin-top: 10px; line-height:1.6; font-size:1rem; color:#222; }
+
+/* Contact block — layout & alignment */
+.contact-block {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 18px 22px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(14,20,30,0.04);
+}
+
+/* Each row: icon + multiline text */
+.contact-item {
+  display: flex;
+  align-items: flex-start;       /* top-align icon with multi-line text */
+  gap: 14px;                     /* space between icon and text */
+  padding: 12px 8px;
+}
+
+/* icon appearance: fixed square/circle so lines align vertically */
+.contact-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #fafbfd, #f3f6fb);
+  box-shadow: 0 3px 8px rgba(14,20,30,0.04) inset;
+  font-size: 18px;               /* emoji / SVG size */
+  line-height: 1;
+  margin-top: 2px;               /* tiny nudge so emoji sits visually centered with first text line */
+  flex: 0 0 38px;                /* fixed icon column width */
+}
+
+/* text column style */
+.contact-text {
+  display: block;
+  color: #1b2430;
+  font-size: 1rem;
+  line-height: 1.45;             /* comfortable spacing for multiline address */
+  word-break: break-word;
+}
+
+/* link styling for email */
+.contact-link {
+  color: #0b63d6;
+  text-decoration: none;
+  font-weight: 500;
+}
+.contact-link:hover { text-decoration: underline; }
+
+/* smaller screens — keep things stacked nicely */
+@media (max-width: 640px) {
+  .contact-item { gap: 10px; padding: 10px 6px; }
+  .contact-icon { width: 34px; height: 34px; font-size: 16px; flex: 0 0 34px; }
+  .contact-text { font-size: 0.98rem; line-height: 1.4; }
+}
+
+
+
+
+
+
+/* Additional spacing for publications only (added by assistant) */
+/*
+.publications-list > *,
+.publications-list li {
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.25rem;
+}
+*/
+
+/* If your publications use the 'publications' or 'publications-card' class, also apply spacing */
+/*
+.publications-module .content-card.publications-card .publication-item,
+.publications-module .publication {
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.25rem;
+}
+*/
+
+/* Specific rule for detected publications container .content-card */
+/*.content-card li, .content-card > * {
+  margin-bottom: 1.25rem;
+}
+*/
+
+/* === Publications spacing (added to ensure increased spacing only for publications) === */
+/*
+.publications-module .content-card.publications-card > *,
+.publications-module .content-card.publications-card .pub-meta,
+.publications-module .content-card.publications-card .pub-authors,
+.publications-module .content-card.publications-card .pub-buttons {
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+*/
+
+/* If each publication is rendered as a consecutive block, ensure larger gap between blocks */
+/*
+.publications-module .content-card.publications-card > * + * {
+  margin-top: 0.6rem !important;
+}
+*/
+
+/* Additional fallback for list items inside publications */
+/*.publications-module .content-card.publications-card li {
+  margin-bottom: 1.5rem !important;
+}
+*/
+/* end publications spacing */
+
+
+
+/* === Increase vertical gap AFTER publication buttons only === */
+/* Ensures extra space between the button row of one publication and the next publication's title */
+/*
+.publications-module .content-card.publications-card .pub-buttons {
+  display: block;
+  margin-bottom: 2.2rem !important;
+}
+*/
+/* Fallback: if there is no .pub-buttons for an entry, ensure gap between consecutive publication blocks */
+/*.publications-module .content-card.publications-card > * + * {
+  margin-top: 2rem !important;
+}
+*/

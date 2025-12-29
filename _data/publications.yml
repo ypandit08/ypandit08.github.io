@@ -1,0 +1,28 @@
+- title: Nearly Equitable Allocations Beyond Additivity and Monotonicity
+  year: 2024
+  venue: AAAI
+  authors:
+  - Siddharth Barman
+  - Umang Bhaskar
+  - Soumyajit Pyne
+  pdf: https://ojs.aaai.org/index.php/AAAI/article/view/28804/29538
+  arxiv: https://arxiv.org/abs/2312.07195
+  to-appear: To appear in JAIR
+  
+- title: Towards Envy-Freeness Relaxations for General Nonmonotone Valuations
+  year: 2025
+  venue: AAMAS
+  authors:
+  - Umang Bhaskar
+  - Gunjan Kumar
+  - Rakshitha
+  pdf: https://www.ifaamas.org/Proceedings/aamas2025/pdfs/p298.pdf
+  arxiv: https://arxiv.org/abs/2411.19881
+  
+- title: Extending EFX Allocations to Further Multi-Graph Classes
+  year: 2025
+  venue: FSTTCS
+  authors:
+  - Umang Bhaskar
+  pdf: https://drops.dagstuhl.de/storage/00lipics/lipics-vol360-fsttcs2025/LIPIcs.FSTTCS.2025.15/LIPIcs.FSTTCS.2025.15.pdf
+  arxiv: https://arxiv.org/abs/2412.06513
