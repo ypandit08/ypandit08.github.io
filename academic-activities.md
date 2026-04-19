@@ -9,21 +9,21 @@ permalink: /academic-activities/
 
   <div class="academic-activities-list">
 
-    <details class="acad-card" open>
+  <details class="acad-card" open>
       <summary>
-        <span class="acad-icon">📑</span>
-        <span class="acad-title">Conferences Attended</span>
+        <span class="acad-icon">💬</span>
+        <span class="acad-title">Talks</span>
       </summary>
       <div class="acad-body">
         <ul>
-		  <li><strong>FSTTCS</strong> — Goa, 2025</li>
-          <li><strong>AAMAS</strong> — Detroit, 2025</li>
-          <li><strong>FSTTCS</strong> — Gandhinagar, 2024</li>
-		  <li><strong>AAAI</strong> — Vancouver, 2024</li>
-          <li><strong>FSTTCS</strong> — Hyderabad, 2023</li>
+		  <li>"<strong>Extending EFX Allocations to Further Multi-Graph Classes</strong>", FSTTCS 2025 and ACM India IndiCS Winter School and Seminar on Algorithmic Mechanism Design 2025</li>
+          <li>"<strong>Towards Envy-Freeness Relaxations for General Nonmonotone Valuations</strong>", University of Illinois at Urbana-Champaign and AAMAS 2025</li>
+		  <li>"<strong>Nearly Equitable Allocations Beyond Additivity and Monotonicity</strong>", ACM-ARCS 2025 and AAAI 2024</li>
         </ul>
       </div>
     </details>
+
+
 
     <details class="acad-card" open>
       <summary>
@@ -43,19 +43,7 @@ permalink: /academic-activities/
       </div>
     </details>
 
-    <details class="acad-card" open>
-      <summary>
-        <span class="acad-icon">💬</span>
-        <span class="acad-title">Talks</span>
-      </summary>
-      <div class="acad-body">
-        <ul>
-		  <li>"<strong>Extending EFX Allocations to Further Multi-Graph Classes</strong>", FSTTCS — 2025 and ACM India IndiCS Winter School and Seminar on Algorithmic Mechanism Design — 2025</li>
-          <li>"<strong>Towards Envy-Freeness Relaxations for General Nonmonotone Valuations</strong>", University of Illinois at Urbana Champaign and AAMAS — 2025</li>
-		  <li>"<strong>Nearly Equitable Allocations Beyond Additivity and Monotonicity</strong>", ACM-ARCS — 2025 and AAAI — 2024</li>
-        </ul>
-      </div>
-    </details>
+    
 
     <details class="acad-card" open>
       <summary>
@@ -68,6 +56,42 @@ permalink: /academic-activities/
         </ul>
       </div>
     </details>
+
+
+<details class="acad-card" open>
+  <summary>
+    <span class="acad-icon">💰</span>
+    <span class="acad-title">Funding & Grants</span>
+  </summary>
+  <div class="acad-body">
+
+    <ul class="acad-list">
+
+      <li>
+        <strong>PhD Funding:</strong>
+        Funded by <b>Department of Atomic Energy, Government of India</b>.
+      </li>
+
+      <li>
+        <strong>AAMAS 2025:</strong>
+        Travel grant awarded by <b>ACM India-IARCS</b> and <b>IFAAMAS</b>.
+      </li>
+
+      <li>
+        <strong>AAAI 2024:</strong>
+        Travel grant awarded by <b>Microsoft Research</b>.
+      </li>
+
+      <li>
+        <strong>Summer School on Computational Social Choice (2023):</strong>
+        Travel grant awarded by <b>University of Amsterdam</b>.
+      </li>
+
+    </ul>
+
+  </div>
+</details>
+	
 	
 	    <details class="acad-card" open>
       <summary>
