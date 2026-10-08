@@ -3,3 +3,8 @@ theme: minima
 plugins:
   - jekyll-feed
 repository: "ypandit08/ypandit08.github.io"
+exclude:
+  - README.md
+  - CHANGELOG.md
+  - Gemfile
+  - Gemfile.lock
